@@ -1,14 +1,25 @@
 import React from "react"
-import MessageBoard from "./MessageBoard"
-import SendMessage from "./SendMessage"
+import MessageBoard from "./MessageBoard/MessageBoard"
+import SendMessage from "./SendMessage/SendMessage"
+import MessageStore from "../../stores/MessageStore"
 
-function Chat(props) {
+function ChatApp(props) {
+    const messageStore = MessageStore()
+
+    const makeMessage = (content) => {
+        const message = {
+            content,
+            from: "me",
+        }
+        messageStore.addMessage(message)
+    }
+
     return (
         <>
             <MessageBoard />
-            <SendMessage />
+            <SendMessage send={makeMessage} />
         </>
     )
 }
 
-export default Chat
+export default ChatApp
