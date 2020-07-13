@@ -29,5 +29,6 @@ export default function MessageStore() {
 
     return {
         addMessage: (payload) => dispatch({ type: ADD_MESSAGE, payload }),
+        getAllMessages: () => state,
     }
 }

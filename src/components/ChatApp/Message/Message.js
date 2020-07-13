@@ -1,7 +1,7 @@
 import React from "react"
 
 function Message(props) {
-    return <div></div>
+    return <div>{props.children}</div>
 }
 
 export default Message

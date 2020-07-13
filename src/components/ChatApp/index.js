@@ -16,7 +16,9 @@ function ChatApp(props) {
 
     return (
         <>
-            <MessageBoard />
+            <MessageBoard
+                getMessages={messageStore.getAllMessages}
+            ></MessageBoard>
             <SendMessage send={makeMessage} />
         </>
     )

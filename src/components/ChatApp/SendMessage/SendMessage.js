@@ -16,6 +16,7 @@ function SendMessage(props) {
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
                 onKeyUp={(e) => e.key === "Enter" && e.ctrlKey && onSend()}
+                autoFocus
             ></textarea>
             <button type="submit" onClick={() => onSend()}>
                 Send
