@@ -2,6 +2,7 @@ import React from "react"
 import MessageBoard from "./MessageBoard/MessageBoard"
 import SendMessage from "./SendMessage/SendMessage"
 import MessageStore from "../../stores/MessageStore"
+import Message from "./Message/Message"
 
 function ChatApp(props) {
     const messageStore = MessageStore()
@@ -17,8 +18,14 @@ function ChatApp(props) {
     return (
         <>
             <MessageBoard
-                getMessages={messageStore.getAllMessages}
-            ></MessageBoard>
+                messages={messageStore.getAllMessages().map((message, i) => (
+                    <Message
+                        remove={() => messageStore.removeMessage(message.id)}
+                    >
+                        {message.content}
+                    </Message>
+                ))}
+            />
             <SendMessage send={makeMessage} />
         </>
     )
