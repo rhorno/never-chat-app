@@ -5,25 +5,30 @@ import MessageStore from "../../stores/MessageStore"
 import Message from "./Message/Message"
 
 function ChatApp(props) {
-    const messageStore = MessageStore()
+    const {
+        getAllMessages,
+        removeMessage,
+        editMessage,
+        addMessage,
+    } = MessageStore()
 
     const makeMessage = (content) => {
         const message = {
             content,
             from: "me",
         }
-        messageStore.addMessage(message)
+        addMessage(message)
     }
 
     return (
         <>
             <MessageBoard
-                messages={messageStore.getAllMessages().map((message, i) => (
+                messages={getAllMessages().map((message) => (
                     <Message
-                        remove={() => messageStore.removeMessage(message.id)}
-                    >
-                        {message.content}
-                    </Message>
+                        remove={() => removeMessage(message.id)}
+                        edit={(content) => editMessage(message.id, content)}
+                        content={message.content}
+                    />
                 ))}
             />
             <SendMessage send={makeMessage} />

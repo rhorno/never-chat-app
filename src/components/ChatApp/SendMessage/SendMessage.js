@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import MessageTextarea from "../MessageTextarea/MessageTextarea"
 
 function SendMessage(props) {
     const [content, setContent] = useState("")
@@ -10,14 +11,11 @@ function SendMessage(props) {
 
     return (
         <div>
-            <textarea
-                placeholder="Message..."
-                maxLength="1000"
-                value={content}
-                onChange={(e) => setContent(e.target.value)}
-                onKeyUp={(e) => e.key === "Enter" && e.ctrlKey && onSend()}
-                autoFocus
-            ></textarea>
+            <MessageTextarea
+                onChange={(value) => setContent(value)}
+                onKeyUp={onSend}
+                content={content}
+            />
             <button type="submit" onClick={() => onSend()}>
                 Send
             </button>

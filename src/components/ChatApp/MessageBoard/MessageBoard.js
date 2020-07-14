@@ -1,12 +1,13 @@
 import React from "react"
+import { v1 } from "uuid"
 
 function MessageBoard(props) {
     const keyPrefix = "messageboard.message."
 
     return (
         <div>
-            {props.messages.map((message, i) => (
-                <div key={`${keyPrefix}${i}`}>{message}</div>
+            {props.messages.map((message) => (
+                <div key={`${keyPrefix}${v1()}`}>{message}</div>
             ))}
         </div>
     )
