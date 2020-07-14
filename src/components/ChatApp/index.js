@@ -15,7 +15,7 @@ function ChatApp(props) {
     const makeMessage = (content) => {
         const message = {
             content,
-            from: "me",
+            from: "loggedInUser",
         }
         addMessage(message)
     }
