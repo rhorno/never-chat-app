@@ -2,8 +2,8 @@ import React from "react"
 
 const sizes = {
     sm: {
-        width: "20px",
-        height: "20px",
+        width: "17px",
+        height: "17px",
     },
 }
 
