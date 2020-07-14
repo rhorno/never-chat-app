@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import MessageTextarea from "../MessageTextarea/MessageTextarea"
 import DeleteIcon from "../../Icons/DeleteIcon"
 import EditIcon from "../../Icons/EditIcon"
+import "./Message.css"
 
 function Message(props) {
     const [isEditing, setIsEditing] = useState(false)
@@ -13,13 +14,18 @@ function Message(props) {
     }
 
     return (
-        <div style={{ border: "1px solid lightgrey" }}>
-            <span onClick={props.remove}>
-                <DeleteIcon />
-            </span>
-            <span onClick={() => setIsEditing(true)}>
-                <EditIcon />
-            </span>
+        <div className="message">
+            <div className="message__interact">
+                <span
+                    onClick={() => setIsEditing(true)}
+                    className="message__icon"
+                >
+                    <EditIcon />
+                </span>
+                <span onClick={props.remove} className="message__icon">
+                    <DeleteIcon />
+                </span>
+            </div>
             {isEditing ? (
                 <MessageTextarea
                     content={content}
