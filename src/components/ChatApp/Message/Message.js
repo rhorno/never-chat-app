@@ -3,6 +3,7 @@ import MessageTextarea from "../MessageTextarea/MessageTextarea"
 import DeleteIcon from "../../Icons/DeleteIcon"
 import EditIcon from "../../Icons/EditIcon"
 import "./Message.css"
+import SaveIcon from "../../Icons/SaveIcon"
 
 function Message(props) {
     const [isEditing, setIsEditing] = useState(false)
@@ -16,12 +17,18 @@ function Message(props) {
     return (
         <div className="message">
             <div className="message__interact">
-                <span
-                    onClick={() => setIsEditing(true)}
-                    className="message__icon"
-                >
-                    <EditIcon />
-                </span>
+                {isEditing ? (
+                    <span onClick={onUpdateContent} className="message__icon">
+                        <SaveIcon />
+                    </span>
+                ) : (
+                    <span
+                        onClick={() => setIsEditing(true)}
+                        className="message__icon"
+                    >
+                        <EditIcon />
+                    </span>
+                )}
                 <span onClick={props.remove} className="message__icon">
                     <DeleteIcon />
                 </span>

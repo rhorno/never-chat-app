@@ -11,6 +11,14 @@
     font-size: 1.2rem;
 }
 
+.message textarea {
+    background-color: #f1f1f1;
+    resize: none;
+    outline: 0;
+    border: 0;
+    margin-top: 0.3rem;
+}
+
 .message p {
     margin: 0;
 }
