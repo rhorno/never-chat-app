@@ -8,7 +8,7 @@ function App() {
             <header className="App-header">
                 <h1>Never chat app</h1>
             </header>
-            <main>
+            <main className="container">
                 <ChatApp />
             </main>
         </div>
